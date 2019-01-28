@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+.active {
+  color: red;  
+}
+  </style>
+</head>
+
+<body>
+  <img id = 'avatar' src="">
+  <div>
+    <a id = 'name' href="" target="blank">
+    </a>
+  </div>
+  
+
+
+<script>
+
+let a = fetch('https://api.github.com/users/defunkt')
+  .then((res) => {
+    if (res.status == 200) {
+      return res.json()
+    } else {
+      document.getElementsByTagName('body')[0].innerHTML = 'Информация о пользователе недоступна';
+    }
+  })
+  .then(json => {
+    document.getElementById('avatar').src = json.avatar_url;
+    document.getElementById('name').innerText = json.name;
+    document.getElementById('name').href = json.html_url;
+    } );
+
+
+
+</script>
+</body>
+</html>
