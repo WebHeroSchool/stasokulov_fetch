@@ -16,6 +16,9 @@
     <a id = 'name' href="" target="blank" >
     </a>
   </div>
+  <div id = 'bio'>
+
+  </div>
   
 
 
@@ -33,6 +36,8 @@ let a = fetch('https://api.github.com/users/defunkt')
     document.getElementById('avatar').src = json.avatar_url;
     document.getElementById('name').innerText = json.name;
     document.getElementById('name').href = json.html_url;
+    document.getElementById('bio').innerText = json.bio;
+    console.log(json);
     } );
 
 
