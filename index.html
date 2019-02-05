@@ -32,9 +32,10 @@
 
   function go () {
     let api = 'https://api.github.com/users/';
-    let search = window.location.search;
-    let indexOfEqual = search.indexOf('=');
-    let login = search.slice(indexOfEqual+1);
+    let search = new URLSearchParams(window.location.search);
+    let login =  search.get("username");
+
+
     let request = api + login;
 
     if (login === undefined) {
